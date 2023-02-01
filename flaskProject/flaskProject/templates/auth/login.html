@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <!-- <div style="padding-left: 900px"><h1>{% block title %}Log In{% endblock %}</h1></div> -->
+{% endblock %}
+
+{% block content %}
+    <body>
+        <main>
+            <div class="divide">
+                <div class="left-side">
+                    <div class="icon"><img src="../../static/usasklogo2.png" alt="Usask logo"></div>
+                    <div class="title"><h1 style="text-align: center; font-size: 1.25em;">USASK</h1></div>
+                    <div class="title2"><h1 style="text-align: center; font-size: 1.25em;">CONNECT</h1></div>
+                </div>
+                <div class="right-side">
+                    <h1 style="text-align: center; margin-top: 160px; color: rgb(17, 82, 9); font-family: SFPro">Log In</h1>
+                    <div style="text-align: center;">
+                            <form method="post" style="text-align: center;">
+                                    <p>
+                                    <input name="username" id="username" required placeholder="Username" class="credentials">
+                                    </p>
+                                    <p>
+                                    <input type="password" name="password" id="password" required placeholder="Password" class="credentials">
+                                    </p>
+                                    <input type="submit" value="Log In" class="button">
+                            </form>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+    </body>
+    <style>
+        @font-face {
+            font-family: "Jersey";
+            src: url(../../static/JerseyM54-aLX9.ttf);
+        }
+        @font-face {
+            font-family: "SFPro";
+            src: url(../../static/SF-Pro.ttf);
+        }
+        body{
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        
+        .divide{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+        }
+        
+        .left-side{
+            flex: 1;
+            background: url(../../static/campus3.jpg);
+            height: 100%;
+            background-size: cover;
+            background-position: 50% 15%;
+            min-height: 450px;
+            background-color: black;
+        }
+
+        .right-side{
+            flex: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-content: center;
+        }
+
+        .labels{
+            display: inline-block;
+        }
+        label{
+            display: inline-block;
+        }
+        input{
+            display: inline-block;
+        }
+        .icon{
+            margin: 10px;
+        }
+        .title{
+            font-family: "Jersey", 'Times New Roman', Times, serif;
+            font-size: 6em;
+            padding-top: 8px;
+            color: rgb(1, 97, 46);
+        }
+        .title2{
+            font-family: "Jersey", 'Times New Roman', Times, serif;
+            font-size: 6em;
+            color: whitesmoke;
+        }
+        .credentials{
+            font-family: "SFPro";
+            height: 45px;
+            width: 350px;
+            margin: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            padding-left: 7px;
+            border: 2px solid lightgray;
+            outline: none;
+        }
+        .button{
+            font-family: "SFPro";
+            height: 45px;
+            width: 350px;
+            margin: 10px;
+            font-size: 15px;
+            border-radius: 5px;
+            padding-left: 7px;
+            border: none;
+            outline: none;
+            background-color: rgb(1, 97, 46);
+            color:whitesmoke;
+        }
+        .button:hover{
+            background-color: rgb(1.25, 121.25, 57.5);
+            transition: all 200ms ease-in-out;
+        }
+    </style>    
+    
+{% endblock %}

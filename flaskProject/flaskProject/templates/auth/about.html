@@ -1,0 +1,174 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <!-- <div style="padding-left: 900px"><h1>{% block title %}About{% endblock %}</h1></div> -->
+{% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+@font-face {
+    font-family: "SFPro";
+    src: url(../../static/SF-Pro.ttf);
+}
+@font-face {
+    font-family: "Jersey";
+    src: url(../../static/JerseyM54-aLX9.ttf);
+}
+body, html{
+    margin: 0;
+    padding: 0;
+}
+* {
+    box-sizing: border-box;
+}
+html{
+    font-size:10px;
+}
+body{
+    /* background: url(../../static/usask.jpg); */
+    height: 100vh;
+    justify-content: center;
+    /* background-size: 35cm; */
+    font-family: "SFPro",sans-serif;
+    background-size: cover;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 3rem;
+    margin-top: 40px;
+    text-align:center;
+
+}
+h1{
+    color: rgb(0, 0, 0);
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom:3rem ;
+    margin-left: 0;
+    margin-right: 0;
+
+}
+h2{
+    color: black;
+    font-size:48px;
+    font-weight:400;
+}
+.description{
+    color: black;
+    line-height: 30px;
+    text-align: center;
+    padding-top: 15px;
+    margin: 0;
+    margin-left: 150px;
+    margin-right: 150px;
+
+}
+.desc{
+    box-sizing: border-box;
+
+}
+
+.usask{
+    display: inline-block;
+    font-family: "Jersey";
+    font-size: 6.25em;
+    margin: 0;
+}
+.usask{
+    color: rgb(0, 136, 82);
+}
+img{
+    width: 150px;
+    display: inline-block;
+    margin-left:0;
+    margin-top: 8px;
+    float: right;
+}
+.brand{
+    display: inline-block;
+    margin:0;
+    margin-bottom: 15px;
+}
+.con{
+    color: lightgray;
+    background:none;
+    margin: 0;
+}
+.members{
+    font-family: "SFPro", Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.names{
+    text-align: center;
+    font-family: "SFPro", Arial, Helvetica, sans-serif;
+    font-size: 2rem;
+    margin: 30px;
+    background-color: whitesmoke;
+    display: inline-block;
+}
+.team{
+    padding-bottom: 30px;
+    background-color: whitesmoke;
+    text-align: center;
+}
+t {
+  
+  color: black;
+  padding: 0.25rem;
+  margin: 0-.25rem;
+  transition: color .2s ease-in-out, box-shadow .2s ease-in-out;
+}
+t:hover {
+  color: rgb(0, 136, 82);
+  box-shadow: inset 200px 0 0 0 black;
+}
+
+t {
+  color: rgb(0, 136, 82);
+  font-family: 'SFPro', sans-serif;
+  font-size: 22px;
+  font-weight: 350;
+  line-height: 1.5;
+  text-decoration: none;
+}
+
+</style>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="wight=device-width, initial-scale=1.0">
+    <title>ABOUT PAGE</title>
+</head>
+<body>
+    <div class="container">
+        <h1>About us</h1>
+        <div class="brand">
+            <h1 class="usask">USASK<br><mark class="con">CONNECT</mark></h1>
+            <img src="../../static/usaskfavicon.png" alt="Usask logo">
+        </div>
+    </div>
+    <h4 style="font-family: SFPro, Arial;" class="description">
+        A social media website exclusive to University of Saskatchewan students to help them connect students that are in the same year, major, or have similar classes.
+    </h4>
+    <div class="team">
+        <h4 class="members">Team Members</h4>
+        <a class="names" href="mailto:nky867@usask.ca"><t>Nevil Findoriya</t></a>
+
+        <a class="names" href="mailto:erz684@usask.ca"><t>Shivam Verma</t></a>
+
+        <a class="names" href="mailto:nki865@usask.ca"><t>Aryan Arora</t></a>
+
+        <a class="names" href="mailto:swx092@usask.ca"><t>Aryan Rajput</t></a>
+
+        <a class="names" href="mailto:iri212@usask.ca"><t>Irtisam Islam</t></a>
+    </div>
+
+</body>
+</html>
+{% endblock %}

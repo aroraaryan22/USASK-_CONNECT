@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="chatroom" style="font-family: SFPro; color: black;">{% block title %}Chat rooms{% endblock %}</h1>
+  {% if g.user %}
+      <div class = "card">
+          <a class="action" href="{{ url_for('blog.chatroom') }}"><span class="headers" style="font-size: x-large;">USASK Main Chatroom</span><br><span class="desc" style="font-size: medium; color: black">Open For All USask Students<br></span></a>
+          <!-- <div class="description"><span style="font-size: small; color: black">Open for all Usask students</span></div> -->
+      <!-- </div> -->
+
+      <!-- <div class = "card"> -->
+          <a class="action" href="#"><span class="headers" style="font-size: x-large;;">CMPT 370</span><br><span class="desc" style="font-size: medium; color: black">Coming Soon<br></span></a>
+          <!-- <div class="description"><span style="font-size: small; color: black">Coming Soon</span></div> -->
+      <!-- </div> -->
+
+      <!-- <div class = "card"> -->
+          <a class="action" href="#"><span class="headers" style="font-size: x-large;">CMPT 360</span><br><span class="desc" style="font-size: medium; color: black">Coming Soon<br></span></a>
+          <!-- <div class="description"><span style="font-size: small; color: black">Coming Soon</span></div> -->
+      <!-- </div> -->
+
+      <!-- <div class = "card"> -->
+          <a class="action" href="#"><span class="headers" style="font-size: x-large;">CMPT 381</span><br><span class="desc" style="font-size: medium; color: black">Coming Soon<br></span></a>
+          <!-- <div class="description"><span style="font-size: small; color: black">Coming Soon</span></div> -->
+      </div>
+
+  {% endif %}
+
+    <style>
+    a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:active { text-decoration: none; }
+    @font-face {
+        font-family: "SFPro";
+        src: url(../../static/SF-Pro.ttf);
+    }
+    .card{
+        margin-bottom: 30px;
+    }
+    .headers{
+        font-family: "SFPro", Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+    .chatroom{
+        display: block;
+        font-size: 3.25em;
+        margin: 30px;
+        font-weight: bold;
+    }
+    .action{
+        color: black;
+        display: block;
+        margin-left: 30px;
+        background-color: white;
+        border: solid;
+        border-color: lightgray;
+        padding: 10px;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        margin-right: 75vw;
+    }
+    .action:hover{
+        background-color: lightgray;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        transform: scale(1.04);
+        color: rgb(0, 136, 82);
+        border-color: rgb(0, 136, 82);
+    }
+    /* .card{
+        background: #000000d0;
+        text-align: center;
+        justify-content: center;
+        color: darkgreen;
+        padding: 2em;
+        border-radius: 30px;
+        height: 120px;
+        width: 400px;
+        max-width: 420px;
+        margin: 1em;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+    } */
+    card:hover {
+  background: #7c7c7c6b;
+}
+    .description{
+          text-transform: capitalize;
+    }
+    </style>
+
+{% endblock %}

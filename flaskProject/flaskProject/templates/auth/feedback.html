@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <!-- <div style="padding-left: 900px"><h1>{% block title %}Feedback{% endblock %}</h1></div> -->
+{% endblock %}
+
+{% block content %}
+<html>
+<title>contact form design</title>
+
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <style>
+        @font-face {
+            font-family: "SFPro";
+            src: url(../../static/SF-Pro.ttf);
+        }
+        body{
+            justify-content: center;
+            align-items: center;
+            margin:0;
+            padding:0;
+    /* {#background-image: url('image5.jpeg');#} */
+
+            text-align: center;
+            background-size: cover;
+            background-position: center;
+        }
+conatct-title{
+    margin-top:100px;
+    color:#fff;
+    text-transform: uppercase;
+    transition: 0.2s ease-in-out;
+
+}
+.conatct-title{
+    margin-top: 60px;
+    font-family: "SFPro", Arial, Helvetica, sans-serif;
+    font-size: 32px;
+
+
+}
+.header1, .header2{
+    display: inline;
+    font-size: 48px;
+    font-weight: bold;
+
+}
+.header1{
+    color: black;
+}
+.header2{
+    color: black;
+}
+.conatct-title h2{
+    color: black;
+    font-size: 32px;
+    line-height: 10px;
+
+}
+form{
+
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: whitesmoke;
+    text-align: center;
+    color: black;
+    margin-top: 50px;
+    transition:  0.2s ease-in-out;
+
+}
+.form-control{
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width:600px;
+    background: transparent;
+    outline: none;
+    border:2px solid lightgray;
+    color:black;
+    font-size: 18px;
+    margin-bottom: 16px;
+    border-radius: 5px;
+
+}
+input{
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    height:45px;
+
+}
+form .submit{
+    background-color:rgb(1, 97, 46);
+    border-color:transparent;
+    color:#fff;
+    font-size: 30px;
+    font-family: "SFPro", Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    height:55px;
+    text-align: center;
+}
+form .submit:hover
+{
+    transition: all 200ms ease-in-out;
+    background-color: rgb(1.25, 121.25, 57.5);
+    cursor: pointer;
+
+}
+
+form .message{
+    height:500px;
+}
+
+.desc{
+    margin-top: 20px;
+    line-height: 30px;
+}
+
+</style>
+</head>
+<body>
+<div class=" conatct-title">
+    <h1 class="header1" style="font-family: SFPro, Arial;">Contact</h1>
+    <h1 class="header2"> us</h1>
+    <h4 class="desc" style="font-family: SFPro, Arial;">Thank your for using USask Connect, the website is still in its early stages. <br>Feedback on bugs and ways we could improve are greatly appreciated</h4>
+</div>
+<div class = "class-form">
+    <form action ="https://formsubmit.co/nevilf20@gmail.com" method = "POST" id = "contact-form">
+    <input name="name" type = "text" class = "form-control" placeholder="Name" required><br>
+    <input name="email" type = "text" class = "form-control" placeholder="Email" required><br>
+    <textarea name = "message" class="form-control" placeholder="Message" row = "4"required style="height: 200px;"></textarea><br>
+    <input type = "submit" class = "form-control submit" value = "Send">
+    </form>
+
+
+</div>
+
+</body>
+</html>
+{% endblock %}

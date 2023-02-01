@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <div style="padding-left: 900px"><h1>{% block title %}Register{% endblock %}</h1></div>
+{% endblock %}
+
+{% block content %}
+    <div class="col-sm-6" style="padding-left: 150px">
+        <img style="image-rendering: optimizeQuality" width="350" height="350" class="img-responsive" src="../../static/usask.png" alt="USask Logo">
+    </div>
+
+    <div class="col-sm-6" style="border-radius: 30px; padding: 30px; background-color: #ededed">
+    <form class="form-group" method="post">
+    <div class="form-group">
+        <label for="username">Username</label>
+        <input name="username" class="form-control" id="username" placeholder="Username" required>
+    </div>
+    <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input name="email" class="form-control" id="email" placeholder="Email" required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+    </div>
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input name="first_name" class="form-control" id="first_name" placeholder="First Name" required>
+    </div>
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input name="last_name" class="form-control" id="last_name" placeholder="Last Name" required>
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input name="age" class="form-control" id="age" placeholder="Age" required>
+    </div>
+        <div style="text-align: center; padding-top: 20px">
+            <button type="submit" class="btn btn-lg btn-primary btn-block" value="Register">Register</button>
+        </div>
+    </form>
+    </div>
+    <style>
+        .btn{
+            background-color: rgb(1, 97, 46);
+        }
+        .btn:hover{
+            background-color: rgb(1.25, 121.25, 57.5);
+        }
+    </style>
+{% endblock %}

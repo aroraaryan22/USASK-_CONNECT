@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}Chatroom</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    </head>
+<body>
+<div class ="bg">
+<nav class="navbar">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="font-size: 7;">USask Connect</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            {% if g.user %}
+                <li><a href="{{ url_for('auth.profile') }}"class="options"><span class="glyphicon glyphicon-user"></span> {{ g.user['username'] }}</a></li>
+                <li><a href="{{ url_for('auth.logout') }}"class="options"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                <li><a href="{{ url_for('auth.feedback') }}"class="options"><span class="glyphicon glyphicon-user"></span> Feedback</a></li>
+                <li><a href="{{ url_for('auth.about') }}"class="options"><span class="glyphicon glyphicon-user"></span> About</a></li>
+            {% else %}
+                <li><a href="{{ url_for('auth.register') }}" class="options"><span class="glyphicon glyphicon-user"></span> Register</a>
+                <li><a href="{{ url_for('auth.login') }}"class="options">Log In</a>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
+<div class="box">
+
+<h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+<div id="msg" class="message_holder"></div>
+<form id="form" action="" method="POST">
+    <input type="text"
+           style="display: none"
+           class="username"
+           id="username"
+           value={{ g.user['first_name'] }} readonly />
+
+    <input id="input"
+           type="text"
+           class="message"
+           autocomplete="off"
+           placeholder="Messages"/>
+
+    <input id="button" type="submit"/>
+</form>
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+<script type="text/javascript">
+var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+socket.on( 'connect', function() {
+socket.emit( 'my event', {
+  data: 'User Connected'
+} )
+var form = $( 'form' ).on( 'submit', function( e ) {
+  e.preventDefault()
+  let user_name = $('input.username').val()
+  let user_input = $( 'input.message' ).val()
+  socket.emit( 'my event', {
+    user_name : user_name,
+    message : user_input
+  } )
+  $( 'input.message' ).val( '' ).focus()
+} )
+} )
+socket.on( 'my response', function( msg ) {
+console.log( msg )
+if( typeof msg.user_name !== 'undefined' ) {
+  $( 'h3' ).remove()
+  $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+}
+})
+</script>
+ </div>
+</body>
+<style>
+
+    *{
+        margin:0px;
+
+        box-sizing: border-box;
+
+     }
+    body {
+        margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    #form{
+        background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 80px; box-sizing: border-box; backdrop-filter: blur(10px);
+
+    }
+    #input {
+        border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; height: 70px;
+    }
+    #input:focus {
+        outline: none;
+    }
+    #button {
+        background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; height: 70px;
+    }
+
+    #msg { list-style-type: none; margin: 0; padding: 0; }
+      #msg > div { padding: 0.5rem 1rem; }
+      #msg > div:nth-child(odd) { background: #efefef; }
+
+    @font-face {
+    font-family: "Jersey";
+    src: url(../../static/JerseyM54-aLX9.ttf);
+    }
+    @font-face {
+        font-family: "SFPro";
+
+    }
+    .navbar{
+        margin-bottom: 0px;
+        background-color: black;
+    }
+
+    .navbar-inverse{
+        background-color: black;
+    }
+    .navbar-header{
+        font-family: "Jersey";
+    }
+    .navbar-brand{
+        color: whitesmoke;
+    }
+    .navbar-brand:hover{
+        color: rgb(0, 136, 82);
+        transition: all 200ms ease-in-out;
+    }
+    .options{
+        color:whitesmoke;
+    }
+    .options:hover{
+        color: black;
+    }
+
+
+    </style>
+</html>

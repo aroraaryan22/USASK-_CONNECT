@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% if g.user %}
+      <!-- <div class="row">
+        <div class="column"> -->
+          <!-- <div class = "card"> -->
+            <!-- <h1 class="home">Home</h1> -->
+              <a class="action" href="{{ url_for('blog.index') }}"><span class="headers">Posts</span><br><span class="desc" style="font-size: medium; color: black">Post photos and share what you're up to<br></span></a></div>
+<!-- {#              <div class="description">Post photos and share what you're up to</div>#} -->
+          <!-- </div> -->
+      <!-- </div>
+
+        <div class="column"> -->
+              <!-- <div class = "card"> -->
+                <a class="action" href="{{ url_for('blog.chat') }}"><span class="headers">Group Chat</span><br><span class="desc" style="font-size: medium; color: black">Join group chats and hangout with other students</span></a></div>
+             <!-- </div> -->
+        <!-- </div> -->
+
+
+
+  {% endif %}
+    <style>
+      @font-face {
+        font-family: "SFPro";
+        src: url(../../static/SF-Pro.ttf);
+      }
+      /* .home{
+        margin-left: 50px;
+        margin-top: 40px;
+        font-family: "SFPro", Arial, Helvetica, sans-serif;
+        font-size: 3.25em;
+        font-weight: bold;
+      } */
+    /* a:link { text-decoration: none; }
+    a:visited { text-decoration: none; }
+    a:hover { text-decoration: none; }
+    a:active { text-decoration: none; }
+    .column {
+    float: left;
+    width: 25%;
+    padding: 0 30px;
+    }
+    .row {margin: 0 0px;}
+    .row:after {
+    content: "";
+    display: table;
+    clear: both;
+    } */
+    /* .card{
+        background: #000000d0;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        color: darkgreen;
+        padding: 2em;
+        border-radius: 30px;
+        height: 200px;
+        width: 400px;
+        max-width: 420px;
+        margin-left: 31.25vw;
+        margin-top: 50px;
+        cursor: pointer;
+    }
+    .card:hover{
+        color: whitesmoke;
+        transition: all 200ms ease-in-out;
+    } */
+
+    .headers{
+      font-weight: bold;
+    }
+
+    .action{
+    background-color: white;
+    border: solid;
+    border-color: lightgray;
+    font-size: 60px; color: black; 
+    font-family: "SFPro";
+    text-align: center;
+    display: block;
+    margin-top: 50px;
+    margin-left:400px;
+    padding-top: 50px;
+    margin-right: 400px;
+    border-radius: 10px;
+    line-height: 40px;
+    padding-bottom: 20px;
+  }
+  .action:link { text-decoration: none; }
+
+
+  .action:visited { text-decoration: none; }
+
+  .action:active { text-decoration: none; }
+  
+  .action:hover{
+    background-color: lightgray;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.04);
+    color: rgb(0, 136, 82);
+    border-color: rgb(0, 136, 82);
+  }
+  .desc:hover{
+    color: rgb(0, 136, 82);
+  }
+    @media screen and (max-width: 600px) {
+  /* .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  } */
+    }
+    </style>
+{% endblock %}

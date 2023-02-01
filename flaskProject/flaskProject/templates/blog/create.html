@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}New Post{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    <label for="title">Title</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <label for="body">Body</label>
+    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
+    <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+    <p><img id="output" width="200" /></p>
+    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+    <input type="submit" value="Save">
+  </form>
+
+    <script>
+    var loadFile = function(event) {
+      var image = document.getElementById("output");
+      image.src = URL.createObjectURL(event.target.files[0]);
+    }
+    var textBox = document.getElementById("textBox");
+
+    textBox.onkeyup = textBox.onkeypress = function(){
+        document.getElementById("TextBox").innerText = this.value;
+    }
+
+</script>
+{% endblock %}
